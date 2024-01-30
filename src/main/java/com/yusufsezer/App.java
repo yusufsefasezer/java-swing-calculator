@@ -12,7 +12,7 @@ public class App {
             CalculatorModel calculatorModel = new CalculatorModel();
             CalculatorView calculatorView = new CalculatorView();
             CalculatorController calculatorController = new CalculatorController(calculatorModel, calculatorView);
-            calculatorController.show();
+            calculatorController.showGUI();
         });
     }
 }
