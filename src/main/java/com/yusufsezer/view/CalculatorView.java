@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 public class CalculatorView extends JFrame {
 
-    private JTextField displayText;
+    private JTextField displayTextField;
 
     public CalculatorView() {
         setTitle("Java Swing Calculator");
@@ -21,15 +21,18 @@ public class CalculatorView extends JFrame {
         setLayout(new GridBagLayout());
     }
 
+    public void setDisplayText(String displayText) {
+        displayTextField.setText(displayText);
+    }
+
     public void createDisplayText(GridBagConstraints gridBagConstraints) {
-        displayText = new JTextField();
-        displayText.setEditable(false);
-        displayText.setText("Yusuf Sezer");
-        displayText.setHorizontalAlignment(JTextField.RIGHT);
+        displayTextField = new JTextField();
+        displayTextField.setEditable(false);
+        displayTextField.setHorizontalAlignment(JTextField.RIGHT);
 
         Font font = new Font("Verdana", Font.PLAIN, 36);
-        displayText.setFont(font);
-        add(displayText, gridBagConstraints);
+        displayTextField.setFont(font);
+        add(displayTextField, gridBagConstraints);
     }
 
     public void makebutton(String buttonText,
