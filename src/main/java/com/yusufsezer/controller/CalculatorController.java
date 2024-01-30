@@ -13,7 +13,7 @@ public class CalculatorController {
         this.calculatorView = view;
     }
 
-    public void show() {
+    public void showGUI() {
         calculatorView.setVisible(true);
     }
 
