@@ -25,6 +25,10 @@ public class CalculatorView extends JFrame {
         displayTextField.setText(displayText);
     }
 
+    public String getDisplayText() {
+        return displayTextField.getText();
+    }
+
     public void createDisplayText(GridBagConstraints gridBagConstraints) {
         displayTextField = new JTextField();
         displayTextField.setEditable(false);

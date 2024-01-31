@@ -1,36 +1,37 @@
 package com.yusufsezer.model;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import com.yusufsezer.contact.ICalculatorStrategy;
+import java.util.Stack;
 
 public class CalculatorModel {
 
-    private String displayText;
-    private Number result;
-    private Number current;
-    private Deque<Number> operand;
+    private Stack<Number> numbers;
+    private Stack<ICalculatorStrategy> operators;
 
     public CalculatorModel() {
-        displayText = "";
-        result = 0;
-        current = 0;
-        operand = new ArrayDeque<>();
+        numbers = new Stack<>();
+        operators = new Stack<>();
     }
 
-    public String getDisplayText() {
-        return displayText;
+    public Stack<Number> getNumbers() {
+        return numbers;
     }
 
-    public void setDisplayText(String displayText) {
-        this.displayText = displayText;
+    public Stack<ICalculatorStrategy> getOperators() {
+        return operators;
     }
 
-    public Number getResult() {
+    public Number calculate() {
+        Number result = 0;
+        while (!operators.isEmpty()) {
+            ICalculatorStrategy operator = operators.pop();
+            Number n1 = numbers.pop();
+            Number n2 = numbers.pop();
+            result = operator.execute(n2, n1);
+            numbers.push(result);
+        }
+        numbers.clear();
         return result;
-    }
-
-    public Number getCurrent() {
-        return current;
     }
 
 }
