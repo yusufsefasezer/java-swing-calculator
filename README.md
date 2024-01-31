@@ -1,4 +1,4 @@
-# java-swing-calculator
+# Java Swing Calculator
 
 Simple calculator application developed with Swing and Java.
 
